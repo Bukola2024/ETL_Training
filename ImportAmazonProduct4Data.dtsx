@@ -1,0 +1,798 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/2/2024 2:19:31 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MOYOPRAISE"
+  DTS:CreatorName="MOYOPRAISE\bukky"
+  DTS:DTSID="{ACC63452-5551-4B7B-ADB8-1BD4262916EB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{E6BFA741-E50B-4405-A12D-55DC0F1B075F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_AmazonProduct4Data]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="FF_AmazonProduct4Data"
+      DTS:DTSID="{37E85254-BB74-423C-BE63-44382D4E3FA9}"
+      DTS:ObjectName="FF_AmazonProduct4Data">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bukky\Documents\ETL Training\Inbound\All Car and Motorbike Products.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="name"
+              DTS:DTSID="{50BE0DD7-BA94-4E2E-8DDB-D4EE4FC0DC52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="main_category"
+              DTS:DTSID="{E28CCD46-2E4C-4500-BE59-4C67A5761373}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sub_category"
+              DTS:DTSID="{34AD6A11-5770-47E7-87E2-A2C176886A68}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="image"
+              DTS:DTSID="{A6F22AD7-E073-400F-B67F-9BF10E86A942}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="link"
+              DTS:DTSID="{AD4FD18A-CCF5-4F96-B13F-E6B1360212B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ratings"
+              DTS:DTSID="{D25F066B-4BD3-49FE-B67A-1F85B4C5A4FD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="no_of_ratings"
+              DTS:DTSID="{38B0B096-DB67-476A-8F45-B1303DC3128A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="discount_price"
+              DTS:DTSID="{94080A62-F1AE-4A49-8EE7-D6CE842F39F5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="actual_price"
+              DTS:DTSID="{6138AD2F-5663-4BED-BFA6-663488BECCC6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{62A45AF5-6968-4E81-99F5-52AB84A1FAA8}"
+      DTS:ObjectName="MOYOPRAISE.EmadeDev">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MOYOPRAISE;Initial Catalog=EmadeDev;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{62A45AF5-6968-4E81-99F5-52AB84A1FAA8}MOYOPRAISE.EmadeDev;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Process to Load AmazonProduct4Data"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{480F8D58-622B-4098-96BE-B3C69AD58292}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process to Load AmazonProduct4Data">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B820CF2D-1425-4A27-8CEE-644F8DEF9B56}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_AmazonProduct4Data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DST_AmazonProduct4Data"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[AmazonProduct4Data]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+                      connectionManagerRefId="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="IgnoreFailure"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="name"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[name]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[main_category]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="main_category"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[main_category]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[main_category]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[sub_category]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="sub_category"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[sub_category]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[sub_category]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[image]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="image"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[image]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[image]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[link]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="link"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[link]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[link]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[ratings]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ratings"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[ratings]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[ratings]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[no_of_ratings]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="no_of_ratings"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[no_of_ratings]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[no_of_ratings]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[discount_price]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="discount_price"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[discount_price]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[discount_price]" />
+                        <inputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].Columns[actual_price]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="actual_price"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[actual_price]"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[actual_price]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[main_category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="main_category" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[sub_category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sub_category" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[image]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="image" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[link]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="link" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[ratings]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ratings" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[no_of_ratings]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="no_of_ratings" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[discount_price]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="discount_price" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input].ExternalColumns[actual_price]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="actual_price" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="FF_AmazonProduct4Data"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FF_AmazonProduct4Data]"
+                      connectionManagerRefId="Package.ConnectionManagers[FF_AmazonProduct4Data]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[name]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[name]"
+                          name="name"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[main_category]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[main_category]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[main_category]"
+                          name="main_category"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[sub_category]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[sub_category]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[sub_category]"
+                          name="sub_category"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[image]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[image]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[image]"
+                          name="image"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[link]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[link]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[link]"
+                          name="link"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[ratings]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[ratings]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[ratings]"
+                          name="ratings"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[no_of_ratings]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[no_of_ratings]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[no_of_ratings]"
+                          name="no_of_ratings"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[discount_price]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[discount_price]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[discount_price]"
+                          name="discount_price"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[actual_price]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[actual_price]"
+                          length="50"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].Columns[actual_price]"
+                          name="actual_price"
+                          truncationRowDisposition="IgnoreFailure">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[main_category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="main_category" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[sub_category]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sub_category" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[image]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="image" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[link]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="link" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[ratings]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ratings" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[no_of_ratings]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="no_of_ratings" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[discount_price]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="discount_price" />
+                        <externalMetadataColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output].ExternalColumns[actual_price]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="actual_price" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data.Paths[Flat File Source Output]"
+                  endId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data"
+          TopLeft="31.0999881163245,43.9999991321564" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="279.2,139.2"
+          Size="279.2,182.4"
+          Id="Package\Process to Load AmazonProduct4Data"
+          TopLeft="190.83332290666,41.5999997107188" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\FF_AmazonProduct4Data"
+          TopLeft="258.333319218623,42.4666663713588" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data"
+          TopLeft="253.333319491811,130.866665756636" />
+        <EdgeLayout
+          Id="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data.Paths[Flat File Source Output]"
+          TopLeft="357.033319355217,84.0666663713588">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.7999993852775"
+              Start="0,0"
+              End="0,39.2999993852775">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2999993852775" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process to Load AmazonProduct4Data\DFT_AmazonProduct4Data\DST_AmazonProduct4Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
