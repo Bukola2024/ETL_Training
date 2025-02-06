@@ -1,0 +1,1770 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/13/2024 5:09:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MOYOPRAISE"
+  DTS:CreatorName="MOYOPRAISE\bukky"
+  DTS:DTSID="{E5E29E97-78AC-4750-8B3B-7BF587C263C3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExportEncountersByEncounterclass"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{3C7F8290-754F-4530-A84A-B10C180D66AB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E4FC9DF9-67CC-4C1F-9104-BFD8649711D8}"
+      DTS:ObjectName="MOYOPRAISE.EmadeDev">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MOYOPRAISE;Initial Catalog=EmadeDev;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-ExportEncountersByEncounterclass-{E4FC9DF9-67CC-4C1F-9104-BFD8649711D8}MOYOPRAISE.EmadeDev;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Process To ExportEncountersByEncounterclass"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AC191DAA-DF0D-4B54-8946-04E44CD69DA3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process To ExportEncountersByEncounterclass">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{FAF0ED2B-7844-4ADE-9F9D-07BD49BAABF9}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_ExportEncountersByEncounterclass"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input].Columns[ENCOUNTERCLASS]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4000"
+                          cachedName="ENCOUNTERCLASS"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Wellness]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Wellness"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "wellness"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "wellness"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Inpatient]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Inpatient"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "inpatient"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "inpatient"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Snf]"
+                      description="Output 3 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Snf"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "snf"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "snf"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">2</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Virtual]"
+                      description="Output 4 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Virtual"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "virtual"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "virtual"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">3</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Hospice]"
+                      description="Output 5 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Hospice"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "hospice"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "hospice"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">4</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Emergency]"
+                      description="Output 6 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Emergency"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "emergency"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "emergency"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">5</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Home]"
+                      description="Output 7 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Home"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "home"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "home"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">6</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Ambulatory]"
+                      description="Output 8 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Ambulatory"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "ambulatory"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "ambulatory"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">7</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Outpatient]"
+                      description="Output 9 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Outpatient"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "outpatient"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "outpatient"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">8</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Urgentcare]"
+                      description="Output 10 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Urgentcare"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]} == "urgentcare"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ENCOUNTERCLASS == "urgentcare"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">9</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterAmbulatory"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterAmbulatory"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterAmbulatory.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterAmbulatory.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterEmergency"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterEmergency"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterEmergency.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterEmergency.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHome"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterHome"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHome.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHome.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHospice"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterHospice"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHospice.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHospice.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterOutpatient"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterOutpatient"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterOutpatient.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterOutpatient.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterSnf"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterSnf"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterSnf.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterSnf.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterUrgentcare"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterUrgentcare"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterUrgentcare.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterUrgentcare.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterVirtual"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterVirtual"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterVirtual.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterVirtual.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterWellness"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_DSTEncounterWellness"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterWellness.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterWellness.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_EncounterReportInpatient"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  name="FF_EncounterReportInpatient"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_EncounterReportInpatient.Connections[FlatFileConnection]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_EncounterReportInpatient.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <externalMetadataColumns
+                        isUsed="True" />
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SRC_ExportEncountersByEncounterclass"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select * 
+From Encounters</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+                      connectionManagerRefId="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[Id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[Id]"
+                          name="Id"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[START]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[START]"
+                          name="START"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[STOP]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[STOP]"
+                          name="STOP"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PATIENT]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PATIENT]"
+                          name="PATIENT"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ORGANIZATION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ORGANIZATION]"
+                          name="ORGANIZATION"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PROVIDER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PROVIDER]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PROVIDER]"
+                          name="PROVIDER"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PAYER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PAYER]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PAYER]"
+                          name="PAYER"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[ENCOUNTERCLASS]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[ENCOUNTERCLASS]"
+                          name="ENCOUNTERCLASS"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[CODE]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[CODE]"
+                          name="CODE"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[BASE_ENCOUNTER_COST]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[BASE_ENCOUNTER_COST]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[BASE_ENCOUNTER_COST]"
+                          name="BASE_ENCOUNTER_COST"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[TOTAL_CLAIM_COST]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_CLAIM_COST]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[TOTAL_CLAIM_COST]"
+                          name="TOTAL_CLAIM_COST"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PAYER_COVERAGE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PAYER_COVERAGE]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[PAYER_COVERAGE]"
+                          name="PAYER_COVERAGE"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[REASONCODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[REASONCODE]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[REASONCODE]"
+                          name="REASONCODE"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[REASONDESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[REASONDESCRIPTION]"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].Columns[REASONDESCRIPTION]"
+                          name="REASONDESCRIPTION"
+                          truncationRowDisposition="IgnoreFailure" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[Id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="START" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="STOP" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="PATIENT" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[ORGANIZATION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="ORGANIZATION" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PROVIDER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="PROVIDER" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PAYER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="PAYER" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[ENCOUNTERCLASS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="ENCOUNTERCLASS" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[BASE_ENCOUNTER_COST]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="BASE_ENCOUNTER_COST" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_CLAIM_COST]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="TOTAL_CLAIM_COST" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[PAYER_COVERAGE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="PAYER_COVERAGE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[REASONCODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="REASONCODE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output].ExternalColumns[REASONDESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          name="REASONDESCRIPTION" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[START]"
+                          name="START" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[STOP]"
+                          name="STOP" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PATIENT]"
+                          name="PATIENT" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ORGANIZATION]"
+                          name="ORGANIZATION" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PROVIDER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PROVIDER]"
+                          name="PROVIDER" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PAYER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PAYER]"
+                          name="PAYER" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ENCOUNTERCLASS]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ENCOUNTERCLASS]"
+                          name="ENCOUNTERCLASS" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[CODE]"
+                          name="CODE" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[BASE_ENCOUNTER_COST]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[BASE_ENCOUNTER_COST]"
+                          name="BASE_ENCOUNTER_COST" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[TOTAL_CLAIM_COST]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[TOTAL_CLAIM_COST]"
+                          name="TOTAL_CLAIM_COST" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PAYER_COVERAGE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[PAYER_COVERAGE]"
+                          name="PAYER_COVERAGE" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[REASONCODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[REASONCODE]"
+                          name="REASONCODE" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[REASONDESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4000"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[REASONDESCRIPTION]"
+                          name="REASONDESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Ambulatory]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterAmbulatory.Inputs[Flat File Destination Input]"
+                  name="Ambulatory"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Ambulatory]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Emergency]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterEmergency.Inputs[Flat File Destination Input]"
+                  name="Emergency"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Emergency]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Home]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHome.Inputs[Flat File Destination Input]"
+                  name="Home"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Home]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Hospice]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHospice.Inputs[Flat File Destination Input]"
+                  name="Hospice"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Hospice]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Inpatient]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_EncounterReportInpatient.Inputs[Flat File Destination Input]"
+                  name="Inpatient"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Inpatient]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[OLE DB Source Output]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Inputs[Conditional Split Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Outpatient]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterOutpatient.Inputs[Flat File Destination Input]"
+                  name="Outpatient"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Outpatient]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Snf]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterSnf.Inputs[Flat File Destination Input]"
+                  name="Snf"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Snf]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Urgentcare]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterUrgentcare.Inputs[Flat File Destination Input]"
+                  name="Urgentcare"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Urgentcare]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Virtual]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterVirtual.Inputs[Flat File Destination Input]"
+                  name="Virtual"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Virtual]" />
+                <path
+                  refId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Wellness]"
+                  endId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterWellness.Inputs[Flat File Destination Input]"
+                  name="Wellness"
+                  startId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split.Outputs[Wellness]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="270.4,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass"
+          TopLeft="41.5333268678853,23.866665955517" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="359.2,148"
+          Size="359.2,191.2"
+          Id="Package\Process To ExportEncountersByEncounterclass"
+          TopLeft="76.6666624777849,35.533333086239" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="272,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass"
+          TopLeft="250.833319628405,8.66666660639976" />
+        <AnnotationLayout
+          Text=""
+          ParentId="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass"
+          FontInfo="{assembly:Null}"
+          Size="62.4,60"
+          Id="ace6f6e0-fb12-4458-87df-ecfd3d8132bd"
+          TopLeft="369.999979784092,135.199999059836" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterWellness"
+          TopLeft="29.1666650730702,135.199999059836" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_EncounterReportInpatient"
+          TopLeft="247.499986477197,137.799999041756" />
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterSnf"
+          TopLeft="471.666640895937,138.666665702396" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterVirtual"
+          TopLeft="18.3333323316441,191.533332001434" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterEmergency"
+          TopLeft="438.333309383857,191.533332218395" />
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHospice"
+          TopLeft="218.333321404127,193.866665557755" />
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterHome"
+          TopLeft="36.6666646632883,242.799998734395" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterAmbulatory"
+          TopLeft="321.666649091576,249.533332182235" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterUrgentcare"
+          TopLeft="387.499978827934,306.799998517434" />
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\FF_DSTEncounterOutpatient"
+          TopLeft="135.466659745906,313.733332525757" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\Conditional Split"
+          TopLeft="314.166649501358,61.7333331766393" />
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[OLE DB Source Output]"
+          TopLeft="386.833319628405,50.2666666063998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80.9333298729529,32.2666665702395"
+              Start="0,0"
+              End="73.4333298729529,32.2666665702395">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2666665702395" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.2666665702395"
+                    Point2="0,32.2666665702395"
+                    Point3="4,32.2666665702395" />
+                  <mssgle:LineSegment
+                    End="73.4333298729529,32.2666665702395" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Wellness]"
+          TopLeft="361.846649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-225.479984428288,31.8666658831968"
+              Start="0,0"
+              End="-225.479984428288,24.3666658831968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.2059979861088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.2059979861088"
+                    Point2="0,12.2059979861088"
+                    Point3="-4,12.2059979861088" />
+                  <mssgle:LineSegment
+                    End="-221.479984428288,12.2059979861088" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-221.479984428288,12.2059979861088"
+                    Point2="-225.479984428288,12.2059979861088"
+                    Point3="-225.479984428288,16.2059979861088" />
+                  <mssgle:LineSegment
+                    End="-225.479984428288,24.3666658831968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-132.892746120394,17.2059979861088,40.3055078125,9.7294921875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Inpatient]"
+          TopLeft="405.526649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.2266630241609,34.4666658651167"
+              Start="0,0"
+              End="-49.2266630241609,26.9666658651167">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.4286916243158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4286916243158"
+                    Point2="0,15.4286916243158"
+                    Point3="-4,15.4286916243158" />
+                  <mssgle:LineSegment
+                    End="-45.2266630241609,15.4286916243158" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.2266630241609,15.4286916243158"
+                    Point2="-49.2266630241609,15.4286916243158"
+                    Point3="-49.2266630241609,19.4286916243158" />
+                  <mssgle:LineSegment
+                    End="-49.2266630241609,26.9666658651167" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-45.3313197933304,20.4286916243158,41.4359765625,11.3310546875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Snf]"
+          TopLeft="449.206649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.459991394579,35.3333325257568"
+              Start="0,0"
+              End="118.459991394579,27.8333325257568">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,2.87695733722784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,2.87695733722784"
+                    Point2="0,6.87695733722784"
+                    Point3="4,6.87695733722784" />
+                  <mssgle:LineSegment
+                    End="114.459991394579,6.87695733722784" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.459991394579,6.87695733722784"
+                    Point2="118.459991394579,6.87695733722784"
+                    Point3="118.459991394579,10.8769573372278" />
+                  <mssgle:LineSegment
+                    End="118.459991394579,27.8333325257568" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="51.0754058535397,11.8769573372278,16.3091796875,9.7783203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Virtual]"
+          TopLeft="332.726649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-217.193317169714,88.199998824795"
+              Start="0,0"
+              End="-217.193317169714,80.699998824795">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.166442724289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.166442724289"
+                    Point2="0,17.166442724289"
+                    Point3="-4,17.166442724289" />
+                  <mssgle:LineSegment
+                    End="-213.193317169714,17.166442724289" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-213.193317169714,17.166442724289"
+                    Point2="-217.193317169714,17.166442724289"
+                    Point3="-217.193317169714,21.166442724289" />
+                  <mssgle:LineSegment
+                    End="-217.193317169714,80.699998824795" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-123.431971084857,22.166442724289,29.670625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Hospice]"
+          TopLeft="390.966649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-71.4333280972311,90.5333323811161"
+              Start="0,0"
+              End="-71.4333280972311,83.0333323811161">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2666661905581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2666661905581"
+                    Point2="0,45.2666661905581"
+                    Point3="-4,45.2666661905581" />
+                  <mssgle:LineSegment
+                    End="-67.4333280972311,45.2666661905581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-67.4333280972311,45.2666661905581"
+                    Point2="-71.4333280972311,45.2666661905581"
+                    Point3="-71.4333280972311,49.2666661905581" />
+                  <mssgle:LineSegment
+                    End="-71.4333280972311,83.0333323811161" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.3830117048656,50.2666661905581,35.3326953125,11.3310546875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Emergency]"
+          TopLeft="434.646649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.486659882499,88.1999990417561"
+              Start="0,0"
+              End="112.486659882499,80.6999990417561">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5755455627999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5755455627999"
+                    Point2="0,26.5755455627999"
+                    Point3="4,26.5755455627999" />
+                  <mssgle:LineSegment
+                    End="108.486659882499,26.5755455627999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.486659882499,26.5755455627999"
+                    Point2="112.486659882499,26.5755455627999"
+                    Point3="112.486659882499,30.5755455627999" />
+                  <mssgle:LineSegment
+                    End="112.486659882499,80.6999990417561" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.2113963474997,31.5755455627999,50.0638671875,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Home]"
+          TopLeft="347.286649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-214.219984838069,139.466665557755"
+              Start="0,0"
+              End="-214.219984838069,131.966665557755">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.0227070894547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.0227070894547"
+                    Point2="0,42.0227070894547"
+                    Point3="-4,42.0227070894547" />
+                  <mssgle:LineSegment
+                    End="-210.219984838069,42.0227070894547" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-210.219984838069,42.0227070894547"
+                    Point2="-214.219984838069,42.0227070894547"
+                    Point3="-214.219984838069,46.0227070894547" />
+                  <mssgle:LineSegment
+                    End="-214.219984838069,131.966665557755" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-120.531340075285,47.0227070894547,26.8426953125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Ambulatory]"
+          TopLeft="420.086649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.379999590218,146.199999005596"
+              Start="0,0"
+              End="10.379999590218,138.699999005596">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.9994854802926" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.9994854802926"
+                    Point2="0,55.9994854802926"
+                    Point3="4,55.9994854802926" />
+                  <mssgle:LineSegment
+                    End="6.37999959021801,55.9994854802926" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.37999959021801,55.9994854802926"
+                    Point2="10.379999590218,55.9994854802926"
+                    Point3="10.379999590218,59.9994854802926" />
+                  <mssgle:LineSegment
+                    End="10.379999590218,138.699999005596" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-21.020000204891,60.9994854802926,52.42,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Outpatient]"
+          TopLeft="376.406649501358,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.539989755452,210.399999349117"
+              Start="0,0"
+              End="-134.539989755452,202.899999349117">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,90.1836590872344" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,90.1836590872344"
+                    Point2="0,94.1836590872344"
+                    Point3="-4,94.1836590872344" />
+                  <mssgle:LineSegment
+                    End="-130.539989755452,94.1836590872344" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.539989755452,94.1836590872344"
+                    Point2="-134.539989755452,94.1836590872344"
+                    Point3="-134.539989755452,98.1836590872344" />
+                  <mssgle:LineSegment
+                    End="-134.539989755452,202.899999349117" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.398901127726,99.1836590872344,48.2578125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass.Paths[Urgentcare]"
+          TopLeft="424.057558592267,103.333333176639">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.8424202356675,203.466665340794"
+              Start="0,0"
+              End="71.8424202356675,195.966665340794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.7981085514891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.7981085514891"
+                    Point2="0,73.7981085514891"
+                    Point3="4,73.7981085514891" />
+                  <mssgle:LineSegment
+                    End="67.8424202356675,73.7981085514891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.8424202356675,73.7981085514891"
+                    Point2="71.8424202356675,73.7981085514891"
+                    Point3="71.8424202356675,77.7981085514891" />
+                  <mssgle:LineSegment
+                    End="71.8424202356675,195.966665340794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.0809171490838,78.7981085514891,49.6805859375,11.3359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process To ExportEncountersByEncounterclass\DFT_ExportEncountersByEncounterclass\SRC_ExportEncountersByEncounterclass">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
