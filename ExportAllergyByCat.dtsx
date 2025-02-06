@@ -1,0 +1,2253 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/12/2024 9:07:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MOYOPRAISE"
+  DTS:CreatorName="MOYOPRAISE\bukky"
+  DTS:DTSID="{492942D5-1877-45E0-A8D9-F3D9ED5E30D7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ExportAllergyByCat"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{0D5A1EAA-F664-426B-8867-E55B2CDBE028}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_AllergyData/Medication]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{063A4FD5-C90D-4522-A90B-6770A18AED81}"
+      DTS:ObjectName="FF_AllergyData/Medication">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bukky\Documents\ETL Training\Outbound\NewAllergiesMedicationReport.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="START"
+              DTS:DTSID="{24603E3F-9383-4859-87F8-B2CFBD9D84A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STOP"
+              DTS:DTSID="{E9A3CAAB-D943-4499-974F-6651A293D700}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PATIENT"
+              DTS:DTSID="{2DACF1BD-FA03-446B-B085-17B489A08922}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ENCOUNTER"
+              DTS:DTSID="{ED650D18-45C6-40A1-AE05-1C6F9A31AF18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{9111DD8D-2AF3-4197-9ECF-13BCD63FE455}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SYSTEM"
+              DTS:DTSID="{5D6AAC91-A772-40A8-99F1-4032AFBDCE85}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{69A18BED-0EE3-491B-B7D5-37D5171F823A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE"
+              DTS:DTSID="{D86AD205-D505-41A1-AA6E-C5E72BBCC22C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CATEGORY"
+              DTS:DTSID="{723B3229-2A53-4AF1-871C-B84E3AF06FD9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION1"
+              DTS:DTSID="{44E46AC1-9453-42A3-B28B-12EB2F88BDAD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION1"
+              DTS:DTSID="{ABB1E42F-1D54-4434-8AE0-181203689F61}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY1"
+              DTS:DTSID="{6E47CCBD-6213-4EF2-937A-BB297FB7E385}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION2"
+              DTS:DTSID="{DDCE2339-31AE-4477-A5FE-896745B0FE80}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION2"
+              DTS:DTSID="{5C795D2A-A56B-4AC1-83B7-8D1E7145F9BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY2"
+              DTS:DTSID="{5FBCD60B-D0C4-47A3-9F79-D9E0E0CF3CEE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_AllergyDataEnvironment]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FD9E8E95-E108-4B58-A754-D5283068CBCC}"
+      DTS:ObjectName="FF_AllergyDataEnvironment">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bukky\Documents\ETL Training\Outbound\NewAllergiesEnvironmentReport.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="START"
+              DTS:DTSID="{1E487F64-3941-4392-B2E3-99A003BBED7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STOP"
+              DTS:DTSID="{9AE5E2F1-B703-4124-BF7A-A5B5122EEDF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PATIENT"
+              DTS:DTSID="{C8560806-4DDF-46BC-998C-5C2BD000353E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ENCOUNTER"
+              DTS:DTSID="{7B9591D0-C5D3-4E55-AB0B-618659D7C5D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{2C4ADB10-5580-41B5-B47C-DDBA4C996067}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SYSTEM"
+              DTS:DTSID="{9E9D7CA9-DB44-484A-BE8A-A266579F1004}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{2812BDFE-6730-467F-A358-3EA2A572869C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE"
+              DTS:DTSID="{70DD52AC-F3CE-48F3-9B6F-D5C53E366A56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CATEGORY"
+              DTS:DTSID="{8C09AD5A-1E5A-47D1-AAD2-B0A2B5D5896F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION1"
+              DTS:DTSID="{38A906D4-E21B-48BB-93D8-CCC5BB154BF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION1"
+              DTS:DTSID="{AE89D644-1507-44A8-99D3-1A933EC9A5F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY1"
+              DTS:DTSID="{8E15A418-CC71-4E2D-B2D2-D2C421C90B88}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION2"
+              DTS:DTSID="{D0E8EBB5-8B7B-48EB-80DF-716979E684D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION2"
+              DTS:DTSID="{1161406D-5118-4AA8-8813-CE52A6AFFF76}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY2"
+              DTS:DTSID="{3F9AC47F-903C-4B7F-B746-77616F037E9D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_AllergyDataFood]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{EC40B1DB-E67E-412D-A4C4-8E0B701C9338}"
+      DTS:ObjectName="FF_AllergyDataFood">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bukky\Documents\ETL Training\Outbound\NewAllergiesFoodReport.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="START"
+              DTS:DTSID="{C2E5AFC4-27D3-44D4-8EE4-473DA99ABCB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STOP"
+              DTS:DTSID="{B79EEF1D-9F82-418D-A263-C9F4C1CCC64B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PATIENT"
+              DTS:DTSID="{25E331EE-6196-49E4-AC6B-34F3AE3E5AD0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ENCOUNTER"
+              DTS:DTSID="{1B3A0C40-67CB-44E4-86D7-A8E4B7DB2415}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{7F622746-7B9D-4CD8-90C5-937E4DFFABAB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SYSTEM"
+              DTS:DTSID="{F1207D8E-1261-4731-8490-B2120088E483}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{BBBDE781-851D-4B44-8355-D130A1CF2C3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE"
+              DTS:DTSID="{70FD093A-DC0E-4C41-897C-CA9FB2E72EE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CATEGORY"
+              DTS:DTSID="{77EC660D-15DC-4BA6-8AD4-3616A633964C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION1"
+              DTS:DTSID="{61C25D4A-185D-46F8-9E65-767106F08998}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION1"
+              DTS:DTSID="{D8717952-61EA-4D68-9C5D-FE60C7A1477A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY1"
+              DTS:DTSID="{3BBF77B8-E557-4F2B-8108-75B779B2C6AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION2"
+              DTS:DTSID="{79252E92-7A96-4CB8-B9DA-9CB0C1073E4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION2"
+              DTS:DTSID="{BDD2D521-EED6-4496-B7A0-04353E494383}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY2"
+              DTS:DTSID="{49BF182F-4DA9-4EA1-827E-D875D06B02FF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_AllergyDataMedication]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{15727E18-0DCF-46E4-B6FF-D3EE8B51F45E}"
+      DTS:ObjectName="FF_AllergyDataMedication">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\bukky\Documents\ETL Training\Outbound\NewAllergiesMedicationReport.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="START"
+              DTS:DTSID="{62739A94-8230-488A-A288-3AE7274BFFA8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STOP"
+              DTS:DTSID="{103C605F-C021-4BA4-88BA-5D663760BB16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PATIENT"
+              DTS:DTSID="{CD181071-0CC1-4756-B2E8-6DBD5E73BA10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ENCOUNTER"
+              DTS:DTSID="{8A068967-664E-4F72-8929-394729C77961}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CODE"
+              DTS:DTSID="{BE65CCF0-5AA4-4C6E-8DBB-28349321E5F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SYSTEM"
+              DTS:DTSID="{1E26A922-CF43-4D52-B4D8-61DD242888A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION"
+              DTS:DTSID="{DC281424-CBA1-41DD-BC06-5B6836E1A3CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TYPE"
+              DTS:DTSID="{8FB99613-B98B-4D8E-B172-32C6FF6DCECD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CATEGORY"
+              DTS:DTSID="{C84FFDE2-16F6-4891-ACCE-0E936BFE2DAC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION1"
+              DTS:DTSID="{15076BD2-0328-4077-ADFA-E240C8BD39BC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION1"
+              DTS:DTSID="{25073B9F-D27C-4753-96EE-6B32CD55D65F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY1"
+              DTS:DTSID="{4C4563D3-2A1D-4A2F-A743-9C53E2FE9F84}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REACTION2"
+              DTS:DTSID="{0E492C30-B024-4D2D-9A65-B0D48A01D8A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESCRIPTION2"
+              DTS:DTSID="{2DB1480A-0F64-4440-B82C-E96367845228}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEVERITY2"
+              DTS:DTSID="{659AE8EC-E48D-449C-A750-2FFD6DE096CA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{641124F6-0F06-4AE5-88BC-D58B19439533}"
+      DTS:ObjectName="MOYOPRAISE.EmadeDev">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MOYOPRAISE;Initial Catalog=EmadeDev;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-ExportAllergyByCat-{641124F6-0F06-4AE5-88BC-D58B19439533}MOYOPRAISE.EmadeDev;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Process To ExportAllergyByCat"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B8065A72-50FF-4E20-81B7-60B84B580F72}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Process To ExportAllergyByCat">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2D6A369C-F107-4A7A-8D27-21ED32EEA40D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_ExportAllergyByBat"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input].Columns[CATEGORY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CATEGORY"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Food]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Food"
+                      synchronousInputId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]} == "food"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">CATEGORY == "food"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Medication]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Medication"
+                      synchronousInputId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]} == "medication"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">CATEGORY == "medication"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Environment]"
+                      description="Output 3 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Environment"
+                      synchronousInputId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]} == "environment"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">CATEGORY == "environment"</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">2</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="FF_DST_AllergyEnvironment"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FF_AllergyDataEnvironment]"
+                      connectionManagerRefId="Package.ConnectionManagers[FF_AllergyDataEnvironment]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[START]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="START"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[START]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[START]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[STOP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="STOP"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[STOP]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[STOP]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[PATIENT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="PATIENT"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[PATIENT]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[PATIENT]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[ENCOUNTER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="ENCOUNTER"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[ENCOUNTER]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[ENCOUNTER]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CODE"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[CODE]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CODE]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[SYSTEM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="SYSTEM"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[SYSTEM]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SYSTEM]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[DESCRIPTION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[TYPE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="TYPE"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[TYPE]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[TYPE]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[CATEGORY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CATEGORY"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[CATEGORY]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[REACTION1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="REACTION1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[REACTION1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[DESCRIPTION1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[SEVERITY1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SEVERITY1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[REACTION2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="REACTION2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[REACTION2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION2]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[DESCRIPTION2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION2]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].Columns[SEVERITY2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SEVERITY2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY2]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="START" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="STOP" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="PATIENT" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[ENCOUNTER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="ENCOUNTER" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[SYSTEM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SYSTEM" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[CATEGORY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[REACTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[REACTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="FF_DST_AllergyFood"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FF_AllergyDataFood]"
+                      connectionManagerRefId="Package.ConnectionManagers[FF_AllergyDataFood]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[START]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="START"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[START]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[START]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[STOP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="STOP"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[STOP]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[STOP]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[PATIENT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="PATIENT"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[PATIENT]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[PATIENT]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[ENCOUNTER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="ENCOUNTER"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[ENCOUNTER]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[ENCOUNTER]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CODE"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[CODE]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CODE]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[SYSTEM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="SYSTEM"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[SYSTEM]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SYSTEM]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[DESCRIPTION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[TYPE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="TYPE"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[TYPE]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[TYPE]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[CATEGORY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CATEGORY"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[CATEGORY]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[REACTION1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="REACTION1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[REACTION1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[DESCRIPTION1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[SEVERITY1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SEVERITY1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[REACTION2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="REACTION2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[REACTION2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION2]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[DESCRIPTION2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION2]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].Columns[SEVERITY2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SEVERITY2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY2]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="START" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="STOP" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="PATIENT" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[ENCOUNTER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="ENCOUNTER" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[SYSTEM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SYSTEM" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[CATEGORY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[REACTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[REACTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="FF_DST_AllergyMedication"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[FF_AllergyData/Medication]"
+                      connectionManagerRefId="Package.ConnectionManagers[FF_AllergyData/Medication]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[START]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="START"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[START]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[START]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[STOP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="STOP"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[STOP]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[STOP]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[PATIENT]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="PATIENT"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[PATIENT]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[PATIENT]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[ENCOUNTER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="ENCOUNTER"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[ENCOUNTER]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[ENCOUNTER]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CODE"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[CODE]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CODE]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[SYSTEM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="SYSTEM"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[SYSTEM]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SYSTEM]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[DESCRIPTION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[TYPE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="TYPE"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[TYPE]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[TYPE]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[CATEGORY]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="CATEGORY"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[CATEGORY]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[REACTION1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="REACTION1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[REACTION1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[DESCRIPTION1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[SEVERITY1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SEVERITY1"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY1]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY1]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[REACTION2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="REACTION2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[REACTION2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION2]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[DESCRIPTION2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DESCRIPTION2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION2]" />
+                        <inputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].Columns[SEVERITY2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SEVERITY2"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY2]"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY2]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="START" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="STOP" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="PATIENT" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[ENCOUNTER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="ENCOUNTER" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[SYSTEM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SYSTEM" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[CATEGORY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[REACTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[REACTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[DESCRIPTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input].ExternalColumns[SEVERITY2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SRC_ExportAllergyByCat"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select *
+From Allergies</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+                      connectionManagerRefId="Package.ConnectionManagers[MOYOPRAISE.EmadeDev]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[START]"
+                          length="100"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[START]"
+                          name="START"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[STOP]"
+                          length="100"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[STOP]"
+                          name="STOP"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[PATIENT]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[PATIENT]"
+                          name="PATIENT"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[ENCOUNTER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[ENCOUNTER]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[ENCOUNTER]"
+                          name="ENCOUNTER"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[CODE]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CODE]"
+                          name="CODE"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SYSTEM]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[SYSTEM]"
+                          length="100"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SYSTEM]"
+                          name="SYSTEM"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[TYPE]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[TYPE]"
+                          name="TYPE"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[CATEGORY]"
+                          name="CATEGORY"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[REACTION1]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION1]"
+                          name="REACTION1"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION1]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION1]"
+                          name="DESCRIPTION1"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[SEVERITY1]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY1]"
+                          name="SEVERITY1"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[REACTION2]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[REACTION2]"
+                          name="REACTION2"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION2]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[DESCRIPTION2]"
+                          name="DESCRIPTION2"
+                          truncationRowDisposition="IgnoreFailure" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          externalMetadataColumnId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[SEVERITY2]"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].Columns[SEVERITY2]"
+                          name="SEVERITY2"
+                          truncationRowDisposition="IgnoreFailure" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="START" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="STOP" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="PATIENT" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[ENCOUNTER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="ENCOUNTER" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[SYSTEM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SYSTEM" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[CATEGORY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="CATEGORY" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[REACTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[SEVERITY1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY1" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[REACTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="REACTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DESCRIPTION2" />
+                        <externalMetadataColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output].ExternalColumns[SEVERITY2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SEVERITY2" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[START]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[START]"
+                          name="START" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[STOP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[STOP]"
+                          name="STOP" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[PATIENT]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[PATIENT]"
+                          name="PATIENT" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[ENCOUNTER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[ENCOUNTER]"
+                          name="ENCOUNTER" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[CODE]"
+                          name="CODE" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[SYSTEM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[SYSTEM]"
+                          name="SYSTEM" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                          name="DESCRIPTION" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[TYPE]"
+                          name="TYPE" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[CATEGORY]"
+                          name="CATEGORY" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[REACTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[REACTION1]"
+                          name="REACTION1" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION1]"
+                          name="DESCRIPTION1" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[SEVERITY1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[SEVERITY1]"
+                          name="SEVERITY1" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[REACTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[REACTION2]"
+                          name="REACTION2" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION2]"
+                          name="DESCRIPTION2" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[SEVERITY2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[SEVERITY2]"
+                          name="SEVERITY2" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[Environment]"
+                  endId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment.Inputs[Flat File Destination Input]"
+                  name="Environment"
+                  startId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Environment]" />
+                <path
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[Food]"
+                  endId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood.Inputs[Flat File Destination Input]"
+                  name="Food"
+                  startId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Food]" />
+                <path
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[Medication]"
+                  endId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication.Inputs[Flat File Destination Input]"
+                  name="Medication"
+                  startId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Outputs[Medication]" />
+                <path
+                  refId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[OLE DB Source Output]"
+                  endId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split.Inputs[Conditional Split Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat"
+          TopLeft="63.6333196284049,47.1999989151955" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="288,144"
+          Size="288,187.2"
+          Id="Package\Process To ExportAllergyByCat"
+          TopLeft="187.499989755452,65.8666662086381" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat"
+          TopLeft="204.166655511492,28.5999998011192" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\Conditional Split"
+          TopLeft="223.333321130938,111.799999222557" />
+        <EdgeLayout
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[OLE DB Source Output]"
+          TopLeft="301.149988321215,70.1999998011192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.5999994214376"
+              Start="0,0"
+              End="0,34.0999994214376">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.0999994214376" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyFood"
+          TopLeft="3.33333315120788,226.199998427033" />
+        <NodeLayout
+          Size="205.6,41.6"
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyMedication"
+          TopLeft="192.499989482264,232.466665322714" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\FF_DST_AllergyEnvironment"
+          TopLeft="405.833311159578,233.866665413115" />
+        <EdgeLayout
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[Food]"
+          TopLeft="275.866654464272,153.399999222557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-182.933321313064,72.7999992044765"
+              Start="0,0"
+              End="-182.933321313064,65.2999992044765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5703089552204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5703089552204"
+                    Point2="0,29.5703089552204"
+                    Point3="-4,29.5703089552204" />
+                  <mssgle:LineSegment
+                    End="-178.933321313064,29.5703089552204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-178.933321313064,29.5703089552204"
+                    Point2="-182.933321313064,29.5703089552204"
+                    Point3="-182.933321313064,33.5703089552204" />
+                  <mssgle:LineSegment
+                    End="-182.933321313064,65.2999992044765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-102.564648937782,34.5703089552204,22.1959765625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[Medication]"
+          TopLeft="324.399987797605,153.399999222557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.0999983153412,79.0666661001574"
+              Start="0,0"
+              End="-29.0999983153412,71.5666661001574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.1157386015072" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.1157386015072"
+                    Point2="0,32.1157386015072"
+                    Point3="-4,32.1157386015072" />
+                  <mssgle:LineSegment
+                    End="-25.0999983153412,32.1157386015072" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.0999983153412,32.1157386015072"
+                    Point2="-29.0999983153412,32.1157386015072"
+                    Point3="-29.0999983153412,36.1157386015072" />
+                  <mssgle:LineSegment
+                    End="-29.0999983153412,71.5666661001574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-38.5119327514206,37.1157386015072,47.9238671875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat.Paths[Environment]"
+          TopLeft="336.533321130938,153.399999222557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176.09999002864,80.466666190558"
+              Start="0,0"
+              End="176.09999002864,72.966666190558">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7376562636395" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7376562636395"
+                    Point2="0,27.7376562636395"
+                    Point3="4,27.7376562636395" />
+                  <mssgle:LineSegment
+                    End="172.09999002864,27.7376562636395" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172.09999002864,27.7376562636395"
+                    Point2="176.09999002864,27.7376562636395"
+                    Point3="176.09999002864,31.7376562636395" />
+                  <mssgle:LineSegment
+                    End="176.09999002864,72.966666190558" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="59.5986082955699,32.7376562636395,56.9027734375,9.470703125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Process To ExportAllergyByCat\DFT_ExportAllergyByBat\SRC_ExportAllergyByCat">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
