@@ -112,11 +112,15 @@ ORDER BY Billing_Amount DESC
 
 -- 12. Finding Billing Amount of patients admitted and number of days spent in respective hospital.
  
---IGNORE ANSWER - Work in progress
-Select Billing_Amount, COUNT(Billing_Amount) as TotalNumberofDays
+--Select Billing_Amount, COUNT(Billing_Amount) as TotalNumberofDays
+--From [dbo].[healthcare_dataset]
+--GROUP BY Billing_Amount
+--ORDER BY TotalNumberofDays DESC, Billing_Amount DESC
+
+SELECT  Name, Hospital,
+    DATEDIFF(D, Date_of_Admission, discharge_date) AS total_days_spent
 From [dbo].[healthcare_dataset]
-GROUP BY Billing_Amount
-ORDER BY TotalNumberofDays DESC, Billing_Amount DESC
+
 
 -- 13. Finding Total number of days spent by patient in an hospital for given medical condition
         -- Findings : This query retrieves a dataset showing the names of patients, their respective medical conditions, billed amounts (rounded to two decimal places), the hospitals they visited, and the duration of their hospital stay in days. Insights gleaned include: 
@@ -125,11 +129,35 @@ ORDER BY TotalNumberofDays DESC, Billing_Amount DESC
 		-- Hospital Performance: By knowing the length of hospital stays, an evaluation of the efficiency of hospitals in managing patient care and treatment duration is possible.
 		-- Potential Patterns: Patterns in medical conditions, billed amounts, and duration of hospitalization may emerge, offering insights into prevalent health issues and associated costs in the healthcare dataset.
 
+		SELECT  Name, Medical_Condition, Hospital,
+    DATEDIFF(D, Date_of_Admission,discharge_date) AS total_days_spent
+FROM [dbo].[healthcare_dataset]   
+--WHERE medical_condition = 'YourCondition'
+--GROUP BY Name, medical_condition
+
 -- 14. Finding Hospitals which were successful in discharging patients after having test results as 'Normal' with count of days taken to get results to Normal
+
+SELECT Hospital, Medical_Condition, Test_Results,
+    SUM(DATEDIFF(D, Date_of_Admission, discharge_date)) AS total_days_spent
+From [dbo].[healthcare_dataset]
+GROUP BY Hospital, Medical_Condition, Test_Results
+HAVING Test_Results = 'Normal'
+Order by 4 ASC
+
 
 -- 15. Calculate number of blood types of patients which lies between age 20 to 45 DESC;
 	-- Findings: This query filters healthcare data for individuals aged between 20 and 45, grouping them by their age and blood type. It then counts the occurrences of each blood type within this age range. The output provides a breakdown of blood type distribution among individuals aged 20 to 45, revealing the prevalence of different blood types within this specific age bracket. The results may offer insights into any potential correlations between age groups and blood type occurrences within the dataset.
     
+	Select Age, Blood_Type, Count(*) AS NumberofPatientwithBlood_Type
+	From [dbo].[healthcare_dataset]
+	Group By Age, Blood_Type
+	Having Age between 20 and 45
+	ORDER BY AGE ASC
 
 -- 16. Find how many of patient are Universal Blood Donor and Universal Blood reciever
+
+SELECT Blood_Type, COUNT(*) AS Universal_DonorsandReceiver
+From [dbo].[healthcare_dataset]
+Group by Blood_Type
+HAVING Blood_Type in ('O-', 'O+', 'AB-', 'AB+')
 
